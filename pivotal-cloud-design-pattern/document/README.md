@@ -60,5 +60,34 @@ public class LazySingleton implements Singleton {
 }
 ```
 * [5].基于双重检查锁定实现LockSingleton单例模式
+```Java
+public class LockSingleton implements Singleton {
+    /**
+     * [1].定义一个静态变量
+     */
+    private static LockSingleton instance;
 
+    /**
+     * [2].封装一个私有构造函数
+     */
+    private LockSingleton() {
+    }
+
+    /**
+     * [3].封装静态实例方法进行赋值操作
+     *
+     * @return LockSingleton实例对象
+     */
+    public static LockSingleton getInstance() {
+        if (instance == null) {
+            synchronized (LockSingleton.class) {
+                if (instance == null) {
+                    instance = new LockSingleton();
+                }
+            }
+        }
+        return instance;
+    }
+}
+```
 #### 工厂模式
