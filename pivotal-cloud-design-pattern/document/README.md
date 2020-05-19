@@ -2,9 +2,38 @@
 #### 设计模式
 #### 单例模式
 * [1].基于枚举类型实现EnumSingleton单例模式
+```Java
+public enum EnumSingleton implements Singleton {
+    /**
+     * [1].定义一个枚举常量类
+     */
+    INSTANCE;
+}
 
+```
 * [2].基于饿汉式实现HungrySingleton单例模式
+```Java
+public class HungrySingleton implements Singleton {
+    /**
+     * [1].定义一个静态实例对象
+     */
+    private static HungrySingleton instance = new HungrySingleton();
+    /**
+     * [2].封装一个私有构造函数
+     */
+    private HungrySingleton() {
+    }
+    /**
+     * [3].封装静态实例方法进行赋值操作
+     *
+     * @return HungrySingleton实例对象
+     */
+    public static HungrySingleton getInstance() {
+        return instance;
+    }
+}
 
+```
 * [3].基于静态内部类实现InnerSingleton单例模式
 ```Java
 public class InnerSingleton implements Singleton {

@@ -10,6 +10,43 @@ package com.pivotal.cloud.design.pattern.singleton;
  * @version: 1.0.0
  * @copyright: Copyright © 2018-2020 Pivotal Systems Incorporated. All rights reserved.
  */
-public  class HungrySingleton implements Singleton {
+public class HungrySingleton implements Singleton {
+    /**
+     * [1].定义一个静态实例对象
+     */
+    private static HungrySingleton instance = new HungrySingleton();
+    /**
+     * [2].封装一个私有构造函数
+     */
+    private HungrySingleton() {
+    }
+    /**
+     * [3].封装静态实例方法进行赋值操作
+     *
+     * @return HungrySingleton实例对象
+     */
+    public static HungrySingleton getInstance() {
+        return instance;
+    }
 
+
+    /**
+     * [4]定义一个测试方法->innerInvoker
+     *
+     * @param request 参数request
+     * @return 返回结果
+     */
+    public String innerInvoker(String request) {
+        String index = "456";
+        System.out.println("request:" + request);
+        request = request + index;
+        return request;
+    }
+
+    public static void main(String[] args) {
+        String request = "123";
+        HungrySingleton singleton = HungrySingleton.getInstance();
+        String result = singleton.innerInvoker(request);
+        System.out.println("result:" + result);
+    }
 }

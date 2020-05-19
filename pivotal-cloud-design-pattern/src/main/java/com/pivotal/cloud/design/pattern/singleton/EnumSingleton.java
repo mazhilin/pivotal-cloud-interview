@@ -10,5 +10,27 @@ package com.pivotal.cloud.design.pattern.singleton;
  * @version: 1.0.0
  * @copyright: Copyright © 2018-2020 Pivotal Systems Incorporated. All rights reserved.
  */
-public class EnumSingleton implements Singleton {
+public enum EnumSingleton implements Singleton {
+    /**
+     * [1].定义一个枚举常量类
+     */
+    INSTANCE;
+
+    /**
+     * [2]定义一个测试方法->innerInvoker
+     *
+     * @param request 参数request
+     * @return 返回结果
+     */
+    public String innerInvoker(String request) {
+        String index = "456";
+        System.out.println("request:" + request);
+        request = request + index;
+        return request;
+    }
+
+    public static void main(String[] args) {
+        String request = "123";
+        System.out.println("result:" + EnumSingleton.INSTANCE.innerInvoker(request));
+    }
 }
