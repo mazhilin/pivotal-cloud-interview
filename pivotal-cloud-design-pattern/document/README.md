@@ -33,7 +33,32 @@ public class InnerSingleton implements Singleton {
 }
 ```
 * [4].基于懒汉式实现LazySingleton单例模式
+```Java
+public class LazySingleton implements Singleton {
+    /**
+     * [1].定义一个静态变量
+     */
+    private static LazySingleton instance;
 
+    /**
+     * [2].封装一个私有构造函数
+     */
+    private LazySingleton() {
+    }
+
+    /**
+     * [3].封装静态实例方法进行赋值操作
+     *
+     * @return LazySingleton实例对象
+     */
+    public static LazySingleton getInstance() {
+        if (instance == null) {
+            instance = new LazySingleton();
+        }
+        return instance;
+    }
+}
+```
 * [5].基于双重检查锁定实现LockSingleton单例模式
 
 #### 工厂模式
