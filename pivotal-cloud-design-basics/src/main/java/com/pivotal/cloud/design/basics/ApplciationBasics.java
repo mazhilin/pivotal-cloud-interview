@@ -8,6 +8,7 @@ import com.pivotal.cloud.design.basics.entity.Parameter;
 import com.pivotal.cloud.design.basics.entity.Sensor;
 import com.pivotal.cloud.design.basics.enums.ElementEnum;
 import com.pivotal.cloud.design.basics.utils.DoubleUtil;
+import com.pivotal.cloud.design.basics.utils.LoggerServerUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -132,7 +133,7 @@ public class ApplciationBasics {
             SerializerFeature.DisableCircularReferenceDetect));
     logger.info(
         "json={}", JSON.toJSONString(device, SerializerFeature.DisableCircularReferenceDetect));
-    
+
     sensorList.parallelStream()
         .filter(Objects::nonNull)
         .forEach(
@@ -177,5 +178,17 @@ public class ApplciationBasics {
                         });
               }
             });
+
+    String className = Thread.currentThread().getStackTrace()[1].getClassName();
+    String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();;
+    LoggerServerUtil.getInstance()
+            .info(logger, "[className]:{},[methodName]:{}", () -> String.format(className , methodName));
+    LoggerServerUtil.getInstance()
+            .info(logger, "[methodName]:{}", () -> methodName);
+    LoggerServerUtil.getInstance()
+            .info(logger, "[methodName]:{}", () -> className+"."+methodName);
+    LoggerServerUtil.getInstance()
+            .info(logger, "Application logger aspect to [methodName]:{}", () -> className+"."+methodName);
+
   }
 }

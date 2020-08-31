@@ -18,5 +18,12 @@ public class ArraryBasics {
     System.out.println(arrary.length);
     System.out.println(arrary[0]);
       System.out.println(arrary[9]);
+
+
+    for (int index=0,item=30;index<=item;index++){
+      StringBuffer stringBuffer =new StringBuffer();
+      stringBuffer.append("第"+index+"个日子！");
+      System.out.println(stringBuffer.toString());
+    }
   }
 }
