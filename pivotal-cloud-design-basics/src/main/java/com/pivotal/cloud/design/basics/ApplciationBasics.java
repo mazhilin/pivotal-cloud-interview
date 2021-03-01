@@ -180,7 +180,7 @@ public class ApplciationBasics {
             });
 
     String className = Thread.currentThread().getStackTrace()[1].getClassName();
-    String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();;
+    String methodName = Thread.currentThread().getStackTrace()[1].getClass().getSimpleName();
     LoggerServerUtil.getInstance()
             .info(logger, "[className]:{},[methodName]:{}", () -> String.format(className , methodName));
     LoggerServerUtil.getInstance()
