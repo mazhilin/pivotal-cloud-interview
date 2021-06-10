@@ -3,22 +3,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.0.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <groupId>com.pivotal.cloud</groupId>
+        <artifactId>pivotal-cloud-interview</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
     <groupId>com.pivotal.cloud</groupId>
-    <artifactId>pivotal-cloud-interview</artifactId>
+    <artifactId>pivotal-cloud-design-architecture</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>pivotal-cloud-interview</name>
-    <packaging>pom</packaging>
+    <name>pivotal-cloud-design-architecture</name>
     <description>Demo project for Spring Boot</description>
-
     <properties>
         <java.version>1.8</java.version>
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -29,12 +25,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.junit.vintage</groupId>
-                    <artifactId>junit-vintage-engine</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
     </dependencies>
 
@@ -46,15 +36,5 @@
             </plugin>
         </plugins>
     </build>
-
-    <modules>
-        <module>pivotal-cloud-design-algorithm</module>
-        <module>pivotal-cloud-design-architecture</module>
-        <module>pivotal-cloud-design-basics</module>
-        <module>pivotal-cloud-design-domain</module>
-        <module>pivotal-cloud-design-pattern</module>
-        <module>pivotal-cloud-design-structure</module>
-        <module>pivotal-cloud-design-framework</module>
-    </modules>
 
 </project>
